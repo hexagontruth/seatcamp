@@ -4,27 +4,48 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: telegrama-raw;
+  font-style: normal;
+  font-weight: normal;
+  src: local('Telegrama Raw'), url('telegraw.woff') format('woff');
+  }
+
+@font-face {
+  font-family: telegrama-render;
+  font-style: normal;
+  font-weight: normal;
+  src: local('Telegrama Render'), url('telegren.woff') format('woff');
+}
+
 html {
   margin: 0;
   padding: 0;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-size: 20px;
+  font-family: telegrama-render, ui-monospace, 'DejaVu Sans', monospace;
+}
+
+input, textarea, button {
+  font-family: ui-monospace, 'DejaVu Sans', monospace;
 }
 
 body,
 body.light {
-  --colorBackground: #ececec;
-  --colorSurface: #fafafa;
-  --colorPopoverSurface: #ffffff;
-  --colorButtonHover: rgba(0, 0, 0, 0.12);
-  --colorButtonActive: rgba(0, 0, 0, 0.16);
+  --colorBackground: #bab6ae;
+  --colorSurface: #f8f6f4;
+  --colorPopoverSurface: #f8f6f4;
 
-  --colorTextPrimary: rgba(0, 0, 0, 0.87);
-  --colorTextSecondary: rgba(0, 0, 0, 0.6);
-  --colorTextDisabled: rgba(0, 0, 0, 0.38);
-  --colorTextInvert: #ffffff;
-  --colorTextLink: #f06292;
-  --colorTextError: #f44336;
+  --colorTextPrimary: #333333;
+  --colorTextSecondary: #666666;
+  --colorTextDisabled: #cccccc;
+  --colorTextLink: #555;
+  --colorTextError: #cc3333;
+  --colorButton: #336699;
+  --colorButtonHover: #4477aa;
+  --colorButtonActive: #3366ff;
+  --colorButtonDisabled: #666;
 
   --colorIconPrimary: rgba(0, 0, 0, 0.6);
   --colorIconDisabled: rgba(0, 0, 0, 0.3);
@@ -41,17 +62,16 @@ body.light {
   --identiconFgLightnessLow: 30;
   --identiconFgLightnessHigh: 60;
 
-  --messageFontSize: 20px;
-  --messageTimeFontSize: 16px;
+  --messageFontSize: 1rem;
+  --messageTimeFontSize: 0.8rem;
   --videoWidth: 200px;
   --videoHeight: 150px;
 
   margin: 0;
-  padding: 56px 0 158px;
+  padding: 3.4rem 0 8rem;
   background-color: var(--colorBackground);
   color: var(--colorTextPrimary);
-  font-family: 'Inter', 'sans-serif';
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1.4;
   width: 100%;
@@ -66,14 +86,11 @@ body.light {
     --colorBackground: #212121;
     --colorSurface: #303030;
     --colorPopoverSurface: #424242;
-    --colorButtonHover: rgba(255, 255, 255, 0.12);
-    --colorButtonActive: rgba(255, 255, 255, 0.16);
 
     --colorTextPrimary: #ffffff;
-    --colorTextSecondary: rgba(255, 255, 255, 0.7);
-    --colorTextDisabled: rgba(255, 255, 255, 0.3);
-    --colorTextLink: #f48fb1;
-    --colorTextError: #c62828;
+    --colorTextSecondary: #cccccc;
+    --colorTextDisabled: #666666;
+    --colorTextLink: #ddd;
 
     --colorIconPrimary: #ffffff;
     --colorIconDisabled: rgba(255, 255, 255, 0.3);
@@ -94,14 +111,11 @@ body.dark {
   --colorBackground: #212121;
   --colorSurface: #303030;
   --colorPopoverSurface: #424242;
-  --colorButtonHover: rgba(255, 255, 255, 0.12);
-  --colorButtonActive: rgba(255, 255, 255, 0.16);
 
   --colorTextPrimary: #ffffff;
-  --colorTextSecondary: rgba(255, 255, 255, 0.7);
-  --colorTextDisabled: rgba(255, 255, 255, 0.3);
-  --colorTextLink: #f48fb1;
-  --colorTextError: #c62828;
+  --colorTextSecondary: #cccccc;
+  --colorTextDisabled: #666666;
+  --colorTextLink: #ddd;
 
   --colorIconPrimary: #ffffff;
   --colorIconDisabled: rgba(255, 255, 255, 0.3);
@@ -162,7 +176,7 @@ h4 {
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 0.8rem;
   letter-spacing: 0.01em;
   line-height: 24px;
 }
@@ -184,7 +198,6 @@ a:active {
 
 button {
   background-color: transparent;
-  font-family: 'Inter', 'sans-serif';
   outline: none;
   border: none;
 }
@@ -204,10 +217,10 @@ button:disabled {
 }
 
 header {
-  background-color: #f06292;
+  background-color: #3e3d3a;
   color: #ffffff;
   display: flex;
-  height: 48px;
+  height: 2.4rem;
   z-index: 10;
 
   position: fixed !important;
@@ -230,7 +243,7 @@ header .actions {
 }
 
 #active-users {
-  font-size: 16px;
+  font-size: 0.8rem;
   margin: auto;
   min-width: 48px;
   text-align: center;
@@ -248,8 +261,8 @@ sc-message-list {
 
 .no-messages .empty-view {
   display: block;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
   font-size: 34px;
   color: var(--colorTextSecondary);
   text-align: center;
@@ -260,7 +273,7 @@ footer {
   display: flex;
 
   position: fixed;
-  bottom: 4px;
+  bottom: 1rem;
   left: 0px;
   right: 0px;
 
@@ -305,10 +318,10 @@ footer .progress {
   padding: 6px 8px 2px;
   bottom: 8px;
   left: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.54);
+  border: 0;
   outline: none;
   border-radius: 2px;
-  background-color: #f06292;
+  background-color: var(--colorButton);
   opacity: 0;
   visibility: hidden;
 
@@ -322,12 +335,12 @@ footer .progress {
 }
 
 .switch-camera:hover {
-  background-color: #f86a9a;
+  background-color: var(--colorButtonHover);
   cursor: pointer;
 }
 
 .switch-camera:active {
-  background-color: #ff71a1;
+  background-color: var(--colorButtonActive)
 }
 
 .camera-disabled-message {
@@ -336,7 +349,7 @@ footer .progress {
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 16px;
+  padding: 0.8rem;
   color: #ffffff;
 
   display: flex;
@@ -370,12 +383,11 @@ form {
 }
 
 #message {
-  background: var(--colorSurface, #fafafa);
+  background: var(--colorSurface);
   border: var(--colorBorder, none);
   border-bottom: 1px solid rgba(0, 0, 0, 0.26);
-  color: var(--colorTextPrimary, #212121);
-  font-family: 'Inter', 'sans-serif';
-  font-size: 16px;
+  color: var(--colorTextPrimary);
+  font-size: 0.8rem;
   flex: 1;
   margin-bottom: 4px;
   margin-left: 6px;
@@ -394,7 +406,7 @@ form {
 
 #message:active:active,
 #message:focus:focus {
-  border-color: #f06292;
+  border-color: var(--colorButton);
   border-width: 2px;
   padding: 4px 2px 3px 2px; /* account for extra border size */
 }
@@ -406,7 +418,7 @@ body #message.full:focus:focus {
 
 /* lol css gods look at me now */
 #message[readonly][readonly][readonly] {
-  border-color: #cb7a95;
+  border-color: var(--colorTextDisabled);
 }
 
 #message[readonly] {
@@ -428,7 +440,7 @@ body #message.full:focus:focus {
 }
 
 #char-counter.full {
-  color: var(--colorTextError, #f44336);
+  color: var(--colorTextError);
 }
 
 #message:active + #char-counter,
@@ -439,26 +451,26 @@ body #message.full:focus:focus {
 
 #send {
   border: 0;
-  background-color: #f06292;
+  background-color: var(--colorButton);
   /* match the form's border radius on the outer corners */
   border-radius: 0 2px 2px 0;
   margin: 0 0 0 4px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 #send:hover {
-  background-color: #f86a9a;
+  background-color: var(--colorButtonHover);
   cursor: pointer;
 }
 
 #send:active {
-  background-color: #ff71a1;
+  background-color: var(--colorButtonActive)
 }
 
 #send:disabled:disabled {
   cursor: default;
-  background-color: #cb7a95;
+  background-color: var(--colorButtonDisabled);
 }
 
 .progress {
@@ -500,7 +512,7 @@ body #message.full:focus:focus {
 
 .progress .circle .mask .fill {
   clip: rect(0px, 24px, 48px, 0px);
-  background-color: #f06292;
+  background-color: var(--colorButton);
 }
 
 .progress .inset {
@@ -553,7 +565,7 @@ body #message.full:focus:focus {
 }
 
 .dialog {
-  background-color: var(--colorPopoverSurface, #fafafa);
+  background-color: var(--colorPopoverSurface);
   width: 672px;
   height: auto;
   max-height: 80vh;
@@ -618,7 +630,7 @@ body #message.full:focus:focus {
 }
 
 .shadow-5 {
-  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.14), 0 16px 24px 2px rgba(0, 0, 0, 0.098),
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.14), 0 0.8rem 24px 2px rgba(0, 0, 0, 0.098),
     0 6px 30px 5px rgba(0, 0, 0, 0.084);
 }
 

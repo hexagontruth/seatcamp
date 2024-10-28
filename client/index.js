@@ -176,7 +176,7 @@ updateTheme(theme.getTheme())
 const messageInput = document.querySelector('#message')
 const sendButton = document.querySelector('#send')
 
-createCharCounter(messageInput, document.querySelector('#char-counter'), 250)
+createCharCounter(messageInput, document.querySelector('#char-counter'), 360)
 
 document.querySelector('form').addEventListener('submit', function (event) {
   event.preventDefault()

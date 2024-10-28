@@ -63,10 +63,10 @@ class MessageElement extends LitElement {
         padding: 4px 8px;
         bottom: 8px;
         left: 8px;
-        border: 1px solid rgba(0, 0, 0, 0.54);
+        border: 0;
         outline: none;
         border-radius: 2px;
-        background-color: #f06292;
+        background-color: var(--colorButton);
         opacity: 0;
         visibility: hidden;
 
@@ -80,16 +80,16 @@ class MessageElement extends LitElement {
       }
 
       .save:hover {
-        background-color: #f86a9a;
+        background-color: var(--colorButtonHover);
         cursor: pointer;
       }
 
       .save:active {
-        background-color: #ff71a1;
+        background-color: var(--colorButtonActive);
       }
 
       .save[disabled] {
-        background-color: #e91e63;
+        background-color: var(--colorButtonDisabled);
       }
 
       .message-text {
@@ -202,7 +202,9 @@ class MessageElement extends LitElement {
       this._srcUrlIsFor = this.video
     }
 
-    const sentDate = new Date(this.sent)
+    const sentDate = new Date(this.sent);
+    const sentISO = sentDate.toISOString().replace(/\.\d{3}Z$/, 'Z');
+
     const isMe = this.userId === this.myId
 
     const videoClass =
@@ -239,7 +241,7 @@ class MessageElement extends LitElement {
             <button data-action="mute">Mute user</button>
           </sc-dropdown>
           <sc-identicon user-id="${this.userId}"></sc-identicon>
-          <time datetime="${sentDate.toISOString()}">${localeTime(sentDate)}</time>
+          <time datetime="${sentDate.toISOString()}">${/*localeTime(sentDate)*/sentISO}</time>
         </div>
     `
   }

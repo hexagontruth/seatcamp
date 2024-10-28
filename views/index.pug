@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title meatspace
+    title hexspace
     style.
       body, body.light {
         background-color: #ECECEC;
@@ -29,7 +29,7 @@ html
     link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap',
         rel='stylesheet')
     link(type='text/css', rel='stylesheet', href='styles.css?20200410')
-    link(type='image/x-icon', rel='icon', href='favicon.ico')
+    link(type='image/x-icon', rel='icon', href='hexseed-icon.png')
     meta(name='theme-color', content='#212121')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(content='width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, ' +
@@ -38,7 +38,7 @@ html
     meta(content='yes', name='apple-mobile-web-app-capable')
   body(class=theme == 'dark' || theme === 'light' ? theme : '')
     header.shadow-1
-      p meatspace
+      p &#x2b23;
       .actions
         p#active-users ?
         sc-dropdown#options-dropdown
@@ -49,12 +49,12 @@ html
           button(data-action='about') About
     sc-message-list#message-list.shadow-1
     div.empty-view
-      p This place looks a little empty&hellip; Send a fun message to get things started!
+      p looks a little empty tbh send a fun message to get things started y not
     footer
       div.preview-container.shadow-1.camera-enabled(onclick="javascript:void(0);")
         div.camera-disabled-message
           sc-svg-icon.camera-disabled-icon(invert='true', icon='videocamOff', size='48')
-          span.camera-disabled-text Please enable your webcam
+          span.camera-disabled-text plz enable your webcam thx
         video#preview
       .progress.shadow-1
         .circle
@@ -66,9 +66,9 @@ html
         .inset.shadow-1
             p.text 0%
       form.shadow-1
-        input#message(type='text', maxlength='250', autofocus='true', autocomplete='off',
-          autocorrect='on', autocapitalize='on', spellcheck='true')
-        p#char-counter 0 / 250
+        input#message(type='text', maxlength='360', autofocus='true', autocomplete='off',
+          autocorrect='on', autocapitalize='off', spellcheck='true')
+        p#char-counter 0 / 360
         button#send(type='submit', title="Send")
           sc-svg-icon(invert='true', icon='send')
     if trackingId

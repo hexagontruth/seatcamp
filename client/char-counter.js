@@ -1,5 +1,5 @@
 class CharCounter {
-  constructor(input, counter, limit = 250) {
+  constructor(input, counter, limit = 360) {
     this.input = input
     this.counter = counter
     this.limit = limit
